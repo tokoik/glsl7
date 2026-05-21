@@ -10,7 +10,7 @@ float shlick(const in float t, const in float k)
   return t / (k - k * t + t);
 }
 
-void main (void)
+void main ()
 {
   vec4 color = texture2DProj(texture, gl_TexCoord[0]);
   vec3 fnormal = vec3(color) * 2.0 - 1.0;
