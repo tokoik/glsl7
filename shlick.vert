@@ -1,6 +1,6 @@
 #version 120
 
-// bump.vert
+// shlick.vert
 
 // 頂点の接線ベクトル
 attribute vec3 tangent;

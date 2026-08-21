@@ -23,8 +23,10 @@ set(HEADERS
 
 # シェーダファイル
 set(SHADER_FILES
-    bump.vert
-    bump.frag
+    anisotropic.vert
+    anisotropic.frag
+    shlick.vert
+    shlick.frag
 )
 
 # リソースファイル

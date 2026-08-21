@@ -59,8 +59,8 @@ static void init()
   GLuint fragShader = glCreateShader(GL_FRAGMENT_SHADER);
 
   /* シェーダのソースプログラムの読み込み */
-  if (readShaderSource(vertShader, "bump.vert")) exit(1);
-  if (readShaderSource(fragShader, "bump.frag")) exit(1);
+  if (readShaderSource(vertShader, "shlick.vert")) exit(1);
+  if (readShaderSource(fragShader, "shlick.frag")) exit(1);
 
   /* シェーダプログラムのコンパイル結果 */
   GLint compiled;
