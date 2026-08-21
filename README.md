@@ -2,7 +2,7 @@
 
 ## 1. 概要
 
-このプログラムは、OpenGL と GLSL (OpenGL Shading Language) における「ユーザ定義関数 (User-Defined Functions)」の記述方法と「Schlick の近似 (Schlick's Approximation)」を学ぶための、学生向けのサンプルプログラムです。本プログラムは、以下のブログ記事の解説に沿って学習を進めるための雛形として提供されています。
+このプログラムは、OpenGL と GLSL (OpenGL Shading Language) における「ユーザ定義関数 (User-Defined Functions)」の記述方法と「Schlick の近似 (Schlick's Approximation)」を学ぶための、学生向けのサンプルプログラムです。本プログラムは、以下のブログ記事の解説に沿って作成したものです。
 
 - [第７回 ユーザ定義関数](https://tokoik.github.io/blog/glsl%20%E5%85%A5%E9%96%80/2005/10/20/glsl.html)
 
@@ -104,9 +104,9 @@ GLSL ではポインタがサポートされていないため、引数の受け
 - `out`: 出力専用の参照渡し。関数から戻る際に仮引数の値が実引数に書き戻されます。
 - `inout`: 入出力兼用の参照渡し。呼び出し時の値が渡され、終了時に変更が反映されます。
 
-### 4.2 フラグメントシェーダ (bump.frag) と Schlick の近似
+### 4.2 フラグメントシェーダ (shlick.frag) と Schlick の近似
 
-フラグメントシェーダ内に以下の `shlick()` 関数を定義し、べき乗計算を置き換えています。
+このプログラムが読み込むシェーダは、第６回の anisotropic.vert と anisotropic.frag をコピーして名前を変えた shlick.vert と shlick.frag です。バーテックスシェーダ (shlick.vert) の内容は第６回のものと同じで、フラグメントシェーダ (shlick.frag) の中に以下の `shlick()` 関数を定義し、べき乗計算を置き換えています。
 
 ```glsl
 float shlick(const in float t, const in float k)
@@ -116,3 +116,11 @@ float shlick(const in float t, const in float k)
 ```
 
 ここで $t$ は内積値 $\cos\theta$、$k$ は輝き係数（shininess）に関連するパラメータです。これにより、計算負荷の高い超越関数（対数・指数）を用いずに、有理式のみで Phong のコサインローブに類似した鏡面反射ハイライトを計算します。
+
+実際の鏡面反射率の計算は、第６回の `pow()` を `shlick()` に置き換えただけです。
+
+```glsl
+// 鏡面反射率
+float specular = shlick(max(dot(normal, halfway), 0.0),
+  halfway.y * halfway.y * gl_FrontMaterial.shininess);
+```
