@@ -4,9 +4,9 @@
 
 このプログラムは、OpenGL と GLSL (OpenGL Shading Language) における「ユーザ定義関数 (User-Defined Functions)」の記述方法と「Schlick の近似 (Schlick's Approximation)」を学ぶための、学生向けのサンプルプログラムです。本プログラムは、以下のブログ記事の解説に沿って作成したものです。
 
-- [第７回 ユーザ定義関数](https://tokoik.github.io/blog/glsl%20%E5%85%A5%E9%96%80/2005/10/20/glsl.html)
+- [第７回 ユーザ定義関数](https://tokoik.github.io/blog/2005-10-20.html)
 
-このプログラムでは、前回の「[第６回 異方性反射](https://tokoik.github.io/blog/glsl%20%E5%85%A5%E9%96%80/2005/10/19/glsl.html)」で実装したハイライト計算において、鏡面反射強度の算出に用いられるべき乗 `pow()` 関数の代わりに、GLSL のユーザ定義関数として実装した **Schlick の近似** を用いて計算を行います。
+このプログラムでは、前回の「[第６回 異方性反射](https://tokoik.github.io/blog/2005-10-19.html)」で実装したハイライト計算において、鏡面反射強度の算出に用いられるべき乗 `pow()` 関数の代わりに、GLSL のユーザ定義関数として実装した **Schlick の近似** を用いて計算を行います。
 
 ## 2. ビルド方法
 
